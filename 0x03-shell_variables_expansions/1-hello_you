@@ -1,2 +1,2 @@
 #!/bin/bash
-echo alias hello user="whoami"
+ alias hello user="echo whoami"
