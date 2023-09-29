@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Use ps to list all processes
+# shelcheck disable=SC2009
+
+ps aux | grep "bash" | grep -v "grep"
