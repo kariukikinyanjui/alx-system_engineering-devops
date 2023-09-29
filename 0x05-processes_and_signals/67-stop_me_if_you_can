@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Check if the "7-highlander" process is running
+if pgrep -f "7-highlander" >/dev/null
+then
+    # Send a SIGTERM signal to the process
+    pkill -SIGTERM -f "7-highlander"
+    echo "Stopping the 7-highlander process..."
+else
+    echo "7-highlander process not found."
+fi
