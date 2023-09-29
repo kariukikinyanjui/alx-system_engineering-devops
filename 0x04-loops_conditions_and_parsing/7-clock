@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Initialize hour and minute variables
+hour=0
+
+# Display the time using a while loop
+while [ $hour -le 12 ]
+do
+    echo "Hour: $hour"
+
+    minute=1
+    while [ $minute -le 59 ]
+    do
+        printf "%d\n" "$minute"
+	((minute++))
+    done
+
+    ((hour++))
+done
