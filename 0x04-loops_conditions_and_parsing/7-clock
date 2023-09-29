@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Initialize hour and minute variables
 hour=0
 
