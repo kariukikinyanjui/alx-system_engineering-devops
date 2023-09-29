@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Find the PID of the process
-pid=$(pgrep -f "4-to_infinity_and_beyond")
+pid=$(ps aux | grep "4-to_infinity_and_beyond" | grep -v grep | awk '{print $2}')
 
 if [ -n "$pid" ]
 then
