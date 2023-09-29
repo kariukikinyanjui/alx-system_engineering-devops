@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Iterate through the files in the current directory using a for loop
+
+for file in *
+do
+    #Check if the file is not hidden and contains a dash in its name
+    if [[ ! $file == .* && $file == *-* ]]
+    then
+    # Use parameter expansion to extract the part after the first dash
+    trimmed_name="${file#*-}"
+    echo "$trimmed_name"
+    fi
+done
