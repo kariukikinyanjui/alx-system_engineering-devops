@@ -7,8 +7,7 @@
 * [Web Server](https://intranet.alxswe.com/concepts/17)
 * [Network basics](https://intranet.alxswe.com/concepts/33)
 * [Load balancer](https://intranet.alxswe.com/concepts/46)
-* ![Representation of load balancer](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/6cefdd14b2f8c36789cba132bd5a10d42d88a177.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231027%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231027T173952Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=1cb72c39b5997031c7b2d4a79f88b4bc3f7c81bf79a2ea6198e4597f78c72c3e)
-[Server](https://intranet.alxswe.com/concepts/67)
+* [Server](https://intranet.alxswe.com/concepts/67)
 
 ## Learning Objectives
 ### General
