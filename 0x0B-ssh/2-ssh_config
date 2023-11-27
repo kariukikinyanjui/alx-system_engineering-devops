@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Configuration for the local SSH client
+
+Hostname 52.87.255.251
+User ubuntu
+IndentityFile ~/.ssh/school
+PreferredAuthentications publickey
+PasswordAuthentication no
