@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Update package list
+apt-get update
+
+# Install nginx
+apt-get install -y nginx
+
+# Create the document root directory for Nginx
+mkdir /etc/nginx/html
+
+# Create an empty html file inside the root directory for Nginx
+touch /etc/nginx/html/index.html
+
+echo "Hello World!" > /etc/nginx/html/index.html
+
+cat <<EOF > /etc/nginx/sites-available/default
+server {
+    listen      80;
+    listen      [::]:80 default_server;
+    root        /etc/nginx/html;
+    index       index.html index.htm;
+}
+EOF
+
+service nginx restart
