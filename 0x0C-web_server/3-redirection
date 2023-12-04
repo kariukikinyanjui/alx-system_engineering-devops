@@ -6,6 +6,7 @@
 echo "server {
     listen 80;
     listen [::]:80;
+    server_name 52.87.255.251;
 
     root /var/www/html;
 
