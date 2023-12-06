@@ -1,22 +1,7 @@
 #!/usr/bin/env bash
-# Existing installation script for Nginx
-./1-install_nginx_web_server
+# 301 Moved permanently redirection
 
-# Configure Nginx redirection
-echo "server {
-    listen 80;
-    listen [::]:80;
-    server_name 52.87.255.251;
+sudo apt-get update
+sudo apt-get install -y
 
-    root /var/www/html;
 
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-}" | sudo tee /etc/nginx/sites-available/redirect
-
-sudo ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
-# Test configuration for syntax errors before restarting
-sudo nginx -t
-# Reload Nginx to apply the configuration changes
-sudo service nginx reload
