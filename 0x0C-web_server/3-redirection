@@ -4,4 +4,10 @@
 sudo apt-get update
 sudo apt-get install -y
 
+echo "Hellow World!" | sudo tee /var/www/html/index.html
 
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.come\/watch?v=QH2-TGUlwu4 permanent;"
+
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
