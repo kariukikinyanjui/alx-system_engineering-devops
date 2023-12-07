@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Configure Nginx on web-01 and web-02
+sudo apt-get update
+sudo apt-get -y nginx
+
+# create index page
+echo "Hellow World!" | sudo tee /var/www/html/index.html
+
+# Performing a redirection
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.come\/watch?v=QH2-TGUlwu4 permanent;"
+
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# Custom 404 page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+# custom http header
+sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+
+# test for syntax error
+sudo nginx -t
+
+# restart
+sudo service nginx restart
