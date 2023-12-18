@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Configure Nginx to list on port 80 for all active IPv4 IPs
+echo "server { listen 80 default_server; root /var/www/html; }" > /etc/nginx/sites-available/default
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+systemctl restart nginx
