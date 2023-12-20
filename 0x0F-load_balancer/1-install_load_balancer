@@ -3,10 +3,6 @@
 sudo apt-get update
 sudo apt-get install -y haproxy
 
-echo "ENABLE=1" >> /etc/default/haproxy
-mv /etc/haproxy/haproxy.cfg{,.original}
-touch /etc/haproxy/haproxy.cfg
-
 printf %s "global
         log /dev/log    local0
         log /dev/log    local1 notice
