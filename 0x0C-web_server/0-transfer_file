@@ -6,9 +6,13 @@ if [ "$#" -lt 4 ]; then
     exit 1
 fi
 
+# assigning parameters to variables
+
 PATH_TO_FILE="$1"
 IP="$2"
 USERNAME="$3"
 PATH_TO_SSH_KEY="$4"
+
+# disabling strict host key checking
 
 scp -o StrictHostKeyChecking=no -i "$PATH_TO_SSH_KEY" "$PATH_TO_FILE" "$USERNAME@$IP":~/
