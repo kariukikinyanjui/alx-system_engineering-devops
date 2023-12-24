@@ -7,7 +7,7 @@ apt-get install -y nginx
 # Create new html file
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
-replacement_string="server_name _;\n\trewrite ^\/redirect_me return 301 https:\/\/github.com\/kariukikinyanjui permanent;"
+replacement_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/kariukikinyanjui permanent;"
 
 sed -i "s/server_name _;/$replacement_string/" /etc/nginx/sites-available/default
 
