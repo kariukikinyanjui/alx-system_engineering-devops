@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install HAProxy
-sudo apt-get update
-sudo apt-get install -y haproxy
+apt-get update
+apt-get install -y haproxy
 
 printf %s "global
         log /dev/log    local0
@@ -38,8 +38,7 @@ backend servers
   timeout connect 5000
   timeout server 50000
   balance roundrobin
-  server 327513-web-01 100.25.192.51 check
-  server 327513-web-02 54.237.50.157 check
+  server 327513-web-01 3.94.213.66 check
+  server 327513-web-02 54.237.226.157 check
 ">> /etc/haproxy/haproxy.cfg
-
-sudo service haproxy restart
+service haproxy restart
