@@ -28,7 +28,10 @@ if __name__ == "__main__":
     with open(csv_file_name, mode='w', newline='') as csv_file:
         fieldnames = [
                 "USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer = csv.DictWriter(
+                csv_file, fieldnames=fieldnames,
+                quoting=csv.QUOTE_ALL, quotechar='"'
+                )
 
         writer.writeheader()
 
