@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Set the Nginx user in the configuration
+sed -i 's/user\s*ngix;/user nginx;/' /etc/nginx/nginx.conf
+
+# Change the ownership of Nginx directories to the nginx user
+chown -R nginx:nginx /var/log/nginx /var/lib/nginx
+
+# Modify the Nginx default site configuration to listen on port 8080
+sed -i 's/listen\s*80;/listen 8080;/' /etc/nginx/sites-available/default
+
+# Restart Nginx to apply the changes
+service nginx restart
