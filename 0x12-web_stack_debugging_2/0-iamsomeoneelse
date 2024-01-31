@@ -6,4 +6,4 @@ if [ $# -eq 0 ]; then
 fi
 
 # Run whoami command under the specified user using sudo
-sudo -u $1 whoami
+sudo -u "$1" whoami
