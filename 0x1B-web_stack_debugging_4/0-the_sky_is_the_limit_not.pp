@@ -7,6 +7,20 @@ exec { 'fix--for-nginx':
   before  => Exec['nginx-restart'],
 }
 
+# Configure Nginx settings for handling 1000 requests with 100 at a time
+file { '/etc/nginx/nginx.conf':
+  ensure  => file,
+  content => "worker_processes 4;\nevents {\n\tworker_connects 100;\n}",
+  notify  => Exec['nginx-reload'],
+}
+
+# Reload Nginx configuration
+exec { 'nginx-reload':
+  command     => '/etc/init.d/nginx reload',
+  path        => '/etc/init.d/',
+  refreshonly => true,
+}
+
 # Restart web server
 exec { 'nginx-restart':
   command => '/etc/init.d/nginx restart',
