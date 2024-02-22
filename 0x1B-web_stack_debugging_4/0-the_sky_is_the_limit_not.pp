@@ -3,7 +3,8 @@
 exec { 'fix--for-nginx':
   # Modify the value of ULIMIT and specifiy the path for the sed command
   command => '/bin/sed -i "s/25/4096/" /etc/default/nginx',
-  path    => '/user/local/bin/:/bin/',
+  path    => '/usr/local/bin/:/bin/',
+  before  => Exec['nginx-restart'],
 }
 
 # Restart web server
