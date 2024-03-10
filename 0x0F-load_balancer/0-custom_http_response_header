@@ -1,22 +1,25 @@
 #!/usr/bin/env bash
-# Configure Nginx on web-01 and web-02
-apt-get update
-apt-get -y nginx
+# 404 page
 
-# create index page
+apt-get update
+apt-get install -y nginx
+
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
-# Performing a redirection
 replacement_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/kariukikinyanjui permanent;"
 
 sed -i "s/server_name _;/$replacement_string/" /etc/nginx/sites-available/default
 
-# Custom 404 page
+# creating 404 page
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+replacement_string="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+
+sed -i "s/listen 80 default_server;/$replacement_string/" /etc/nginx/sites-available/default
 
 # custom http header
 sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
 
-# test for syntax error and restart nginx
+# test and restart nginx
 nginx -t
 service nginx restart
